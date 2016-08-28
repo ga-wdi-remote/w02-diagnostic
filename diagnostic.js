@@ -13,7 +13,13 @@
 //    negative, return `null`. Assume that `n` will only be whole numbers.
 
 var nthFibonacci = function(n){
-  // Your Code Here
+  var fibs = [1, 1];
+  if (n < 1) { return null; }
+  if (n === 1) {return fibs[0];}
+  for (var i = 2; i < n; i++){
+    fibs.push(fibs[fibs.length - 2] + fibs[fibs.length - 1])
+  }
+  return fibs[fibs.length - 1];
 };
 
 // 2. Objects are combinations of keys and values. Write a function that takes
@@ -27,7 +33,18 @@ var nthFibonacci = function(n){
 ////        `Object.keys()` method...
 
 var mergeObjects = function(objA, objB, isLeftDominant){
-  // Your Code Here
+  var result = {};
+  var keys = Object.keys(objA);
+  for (var i = 0; i < keys.length; i++) {
+    result[keys[i]] = objA[keys[i]];
+  }
+  keys = Object.keys(objB);
+  for (var i = 0; i < keys.length; i++) {
+    if (!result[keys[i]] || !isLeftDominant) {
+      result[keys[i]] = objB[keys[i]]
+    }
+  }
+  return result;
 };
 
 // Note: These next two questions involve using the DOM. Don't worry, just call
@@ -39,7 +56,11 @@ var mergeObjects = function(objA, objB, isLeftDominant){
 //    with the new <li> elements.
 
 var renderTaskList = function(tasks){
-  // Your Code Here
+  var newHTML = '';
+  for (var i = 0; i < tasks.length; i++) {
+    newHTML += ("<li>" + tasks[i] + "</li>");
+  }
+  document.getElementById('task-list').innerHTML = newHTML;
 };
 
 // 4. Write a function that can be used as an 'onclick' handler for a button.
@@ -48,7 +69,14 @@ var renderTaskList = function(tasks){
 //    again with every click.
 
 var rotateBackgroundColor = function(){
-  // Your Code Here
+  var currentColor = document.body.style.backgroundColor;
+  var nextColorAfter = {
+    'white': 'red',
+    'red': 'blue',
+    'blue': 'green',
+    'green': 'white'
+  };
+  document.body.style.backgroundColor = nextColorAfter[currentColor];
 };
 
 /// DO NOT EDIT BELOW THIS LINE ///
