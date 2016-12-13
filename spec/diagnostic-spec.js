@@ -6,6 +6,31 @@
 const assert = require('assert');
 const jsdom = require('mocha-jsdom');
 
+let phantom = require('phantom');
+let phInstance = null, sitepage = null;
+describe('w02 Diagnostic', function(){
+  before(function(){
+    this.timeout(6000);
+    return phantom.create()
+    .then(instance => {
+      phInstance = instance;
+      return instance.createPage();
+    })
+    .then(page => {
+      sitepage = page;
+      return page.open( process.env.PWD + '/index.html');
+    })
+    .then(status => {
+      console.log(`PAGE FINISHED LOADING; STATUS ${status}`);
+    })
+    .catch(error => {
+        console.log(error);
+        sitepage.close();
+        phInstance.exit();
+    });
+  });
+});
+
 describe("nthFibonacci(n)", function(){
   it("gives the nth Fibonacci number", function(){
     assert.equal(nthFibonacci(1), 1);
