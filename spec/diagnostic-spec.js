@@ -26,30 +26,6 @@ describe("nthFibonacci(n)", function(){
     assert.equal(nthFibonacci(-1), null);
   });
 });
-describe("mergeObjects(objA, objB, isLeftDominant)",function(){
-  context("when no key exists on both objects", function(){
-    it("combines all keys and values, regardless of the value of `isLeftDominant`", function(){
-      assert.deepStrictEqual(mergeObjects({a: 1, b: 2}, {c: 3, d: 4}, false),
-                                          {a: 1, b: 2, c: 3, d: 4});
-      assert.deepStrictEqual(mergeObjects({e: 23, f: 9, g: 13}, {h: 43, i: 24}, true),
-                                          {e: 23, f: 9, g: 13, h: 43, i: 24});
-    });
-  });
-  context("when the same key can be found on both objects", function(){
-    it("uses the values from the left object if `isLeftDominant` is true", function(){
-      assert.deepStrictEqual(mergeObjects({a: 1, b: 2}, {a: 3, d: 4}, true),
-                                          {a: 1, b: 2, d: 4});
-      assert.deepStrictEqual(mergeObjects({e: 23, f: 9, g: 13}, {e: 43, i: 24}, true),
-                                          {e: 23, f: 9, g: 13, i: 24});
-    });
-    it("uses the values from the right object if `isLeftDominant` is false", function(){
-      assert.deepStrictEqual(mergeObjects({a: 1, b: 2}, {a: 3, d: 4}, false),
-                                          {a: 3, b: 2, d: 4});
-      assert.deepStrictEqual(mergeObjects({e: 23, f: 9, g: 13}, {e: 43, i: 24}, false),
-                                          {e: 43, f: 9, g: 13, i: 24});
-    });
-  });
-});
 
 jsdom();
 describe("renderTaskList(tasks)", function(){
