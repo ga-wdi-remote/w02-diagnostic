@@ -16,24 +16,10 @@ var nthFibonacci = function(n){
   // Your Code Here
 };
 
-// 2. Objects are combinations of keys and values. Write a function that takes
-//    two objects as arguments, and returns a new object containing the keys and
-//    values of both original objects. The third argument, `isLeftDominant`, is
-//    a boolean used to resolve situations in which both objects share a key; if
-//    it is `true`, the new object should always take the value from objA, and
-//    if it is `false`, the new object should always take the value from objB.
-//
-////  Hint: There are a couple of ways to solve this; one involves using the
-////        `Object.keys()` method...
+// Note: These next three questions involve using the DOM. Don't worry, just
+// call `document` just like you normally would.
 
-var mergeObjects = function(objA, objB, isLeftDominant){
-  // Your Code Here
-};
-
-// Note: These next two questions involve using the DOM. Don't worry, just call
-// `document` just like you normally would.
-
-// 3. Write a function that takes an array of tasks (e.g. "walk the dog") and
+// 2. Write a function that takes an array of tasks (e.g. "walk the dog") and
 //    turns them into <li> elements; then, it should grab a <ul> element with
 //    id 'task-list' and replace (NOT append) the inner content of that <ul>
 //    with the new <li> elements.
@@ -42,7 +28,7 @@ var renderTaskList = function(tasks){
   // Your Code Here
 };
 
-// 4. Write a function that can be used as an 'onclick' handler for a button.
+// 3. Write a function that can be used as an 'onclick' handler for a button.
 //    When the button is pressed, the background color of the page's <body>
 //    element should change to red, then blue, then green, then back to white
 //    again with every click.
