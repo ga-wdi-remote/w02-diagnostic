@@ -33,3 +33,8 @@ var renderTaskList = function(tasks){
 var rotateBackgroundColor = function(){
   // Your Code Here
 };
+
+// 4. Set `rotateBackgroundColor` as a click handler for the button with the id
+//    `q3-q4-button`.
+
+// Your Code Here
