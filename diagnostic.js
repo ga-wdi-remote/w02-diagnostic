@@ -17,19 +17,18 @@ var nthFibonacci = function(n){
 // Note: These next three questions involve using the DOM. Don't worry, just
 // call `document` just like you normally would.
 
-// 2. Write a function that takes an array of tasks (e.g. "walk the dog") and
-//    turns them into <li> elements; then, it should grab a <ul> element with
-//    id 'task-list' and replace (NOT append) the inner content of that <ul>
-//    with the new <li> elements.
+// 2. `renderTaskList` must
+//    a) grab a <ul> element with id 'task-list' and
+//    b) replace (NOT append) the inner content of that <ul> with new <li>
+//       elements created from the list of tasks that is passed in.
 
 var renderTaskList = function(tasks){
   // Your Code Here
 };
 
-// 3. Write a function that can be used as an 'onclick' handler for a button.
-//    When the button is pressed, the background color of the page's <body>
-//    element should change to red, then blue, then green, then back to white
-//    again with every click.
+// 3. `rotateBackgroundColor` must rotate the background color of the
+//    page's <body> element each time it is invoked; from white to red, from red
+//    to blue, from blue to green, and then from green back to white again.
 
 var rotateBackgroundColor = function(){
   // Your Code Here
