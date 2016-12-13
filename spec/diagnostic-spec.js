@@ -6,11 +6,6 @@
 const assert = require('assert');
 const jsdom = require('mocha-jsdom');
 
-const mergeObjects = require('../diagnostic.js').mergeObjects;
-const nthFibonacci = require('../diagnostic.js').nthFibonacci;
-const renderTaskList = require('../diagnostic.js').renderTaskList;
-const rotateBackgroundColor = require('../diagnostic.js').rotateBackgroundColor;
-
 describe("nthFibonacci(n)", function(){
   it("gives the nth Fibonacci number", function(){
     assert.equal(nthFibonacci(1), 1);
