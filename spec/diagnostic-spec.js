@@ -22,9 +22,9 @@ describe('w02 Diagnostic', function(){
       sitepage = page;
       return page.open( process.env.PWD + '/index.html');
     })
-    .then(status => {
-      console.log(`PAGE FINISHED LOADING; STATUS ${status}`);
-    })
+    // .then(status => {
+    //   console.log(`PAGE FINISHED LOADING; STATUS ${status}`);
+    // })
     .catch(error => {
         console.log(error);
         sitepage.close();
@@ -69,7 +69,8 @@ describe('w02 Diagnostic', function(){
     });
   });
   describe("renderTaskList(tasks)", function(){
-    it("takes a list of tasks, generates a set of <li> elements, and sets these elements as the content of a <ul> element with the id 'task-list'", function(){
+    it('takes a list of tasks, generates a set of <li> elements from those tasks,\n     \
+    and sets these elements as the content of a <ul> element with the id `task-list`', function(){
       var tasks = [
         'mow the lawn',
         'walk the dog',
@@ -94,11 +95,11 @@ describe('w02 Diagnostic', function(){
     })
   });
   describe("rotateBackgroundColor()", function(){
-    it('changes the background color of the body once;\n\
-      --- if the background color is white (or something else other than red, blue, or green), it becomes red;\n\
-      --- if the background color is red, it becomes blue;\n\
-      --- if the background color is blue, it becomes green;\n\
-      --- if the background color is green, it becomes white', function(){
+    it('changes the background color of the body once;\n     \
+      - if the background color is white (or something else other than red, blue, or green), it becomes red;\n     \
+      - if the background color is red, it becomes blue;\n     \
+      - if the background color is blue, it becomes green;\n     \
+      - if the background color is green, it becomes white', function(){
       let testCases = [
         {initialColor: 'white', nextColor: 'red'},
         {initialColor: 'red', nextColor: 'blue'},
