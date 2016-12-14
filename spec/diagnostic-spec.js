@@ -123,5 +123,13 @@ describe('w02 Diagnostic', function(){
         });
       });
     });
+    it('is attached to the button with id `q3-q4-button` as a click handler', function(){
+      return sitepage.evaluate(function(){
+        var button = document.getElementById('q3-q4-button');
+        return button.onclick === rotateBackgroundColor;
+      }).then(function(result){
+        expect(result).to.be.true;
+      });
+    });
   });
 });
