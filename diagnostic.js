@@ -11,7 +11,13 @@
 //    negative, return `null`. Assume that `n` will only be whole numbers.
 
 var nthFibonacci = function(n){
-  // Your Code Here
+  var fibs = [1, 1];
+  if (n < 1) { return null; }
+  if (n === 1) {return fibs[0];}
+  for (var i = 2; i < n; i++){
+    fibs.push(fibs[fibs.length - 2] + fibs[fibs.length - 1])
+  }
+  return fibs[fibs.length - 1];
 };
 
 // Note: These next three questions involve using the DOM. Don't worry, just
@@ -23,7 +29,11 @@ var nthFibonacci = function(n){
 //       elements created from the list of tasks that is passed in.
 
 var renderTaskList = function(tasks){
-  // Your Code Here
+  var newHTML = '';
+  for (var i = 0; i < tasks.length; i++) {
+    newHTML += ("<li>" + tasks[i] + "</li>");
+  }
+  document.getElementById('task-list').innerHTML = newHTML;
 };
 
 // 3. `rotateBackgroundColor` must rotate the background color of the
@@ -31,10 +41,19 @@ var renderTaskList = function(tasks){
 //    to blue, from blue to green, and then from green back to white again.
 
 var rotateBackgroundColor = function(){
-  // Your Code Here
+  var currentColor = document.body.style.backgroundColor;
+  var nextColorAfter = {
+    'white': 'red',
+    'red': 'blue',
+    'blue': 'green',
+    'green': 'white'
+  };
+  document.body.style.backgroundColor = nextColorAfter[currentColor] || 'red';
 };
 
 // 4. Set `rotateBackgroundColor` as a click handler for the button with the id
 //    `q3-q4-button`.
 
-// Your Code Here
+window.onload = function(){
+  document.getElementById('q3-q4-button').onclick = rotateBackgroundColor;
+};
