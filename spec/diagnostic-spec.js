@@ -4,7 +4,6 @@
 "use strict";
 
 const assert = require('assert');
-const jsdom = require('mocha-jsdom');
 
 let phantom = require('phantom');
 let phInstance = null, sitepage = null;
@@ -92,35 +91,33 @@ describe('w02 Diagnostic', function(){
     })
   });
   describe("rotateBackgroundColor()", function(){
-    context("when the background color of the body is white", function(){
-      it("changes the background color to red", function(){
-        document.body.style.backgroundColor = "white";
-        rotateBackgroundColor();
-        assert.equal(document.body.style.backgroundColor, "red");
-      });
-    });
-    context("when the background color of the body is red", function(){
-      it("changes the background color to blue", function(){
-        document.body.style.backgroundColor = "red";
-        rotateBackgroundColor();
-        assert.equal(document.body.style.backgroundColor, "blue");
-      });
-    });
-    context("when the background color of the body is blue", function(){
-      it("changes the background color to green", function(){
-        document.body.style.backgroundColor = "blue";
-        rotateBackgroundColor();
-        assert.equal(document.body.style.backgroundColor, "green");
-      });
-    });
-    context("when the background color of the body is green", function(){
-      it("changes the background color to white", function(){
-        document.body.style.backgroundColor = "green";
-        rotateBackgroundColor();
-        assert.equal(document.body.style.backgroundColor, "white");
+    it('changes the background color of the body once;\n\
+      --- if the background color is white (or something else other than red, blue, or green), it becomes red;\n\
+      --- if the background color is red, it becomes blue;\n\
+      --- if the background color is blue, it becomes green;\n\
+      --- if the background color is green, it becomes white', function(){
+      let testCases = [
+        {initialColor: 'white', nextColor: 'red'},
+        {initialColor: 'red', nextColor: 'blue'},
+        {initialColor: 'blue', nextColor: 'green'},
+        {initialColor: 'green', nextColor: 'white'},
+        {initialColor: '', nextColor: 'red'},
+        {initialColor: 'orange', nextColor: 'red'}
+      ];
+      return sitepage.evaluate(function(testCases){
+        return testCases.map(function(testCase){
+          document.body.style.backgroundColor = testCase.initialColor;
+          rotateBackgroundColor();
+          return {
+            expected: testCase.nextColor,
+            actual: document.body.style.backgroundColor
+          };
+        });
+      }, testCases).then(function(testCases){
+        testCases.forEach(function(testCase){
+          assert.equal(testCase.expected, testCase.actual);
+        });
       });
     });
   });
 });
-
-jsdom();
