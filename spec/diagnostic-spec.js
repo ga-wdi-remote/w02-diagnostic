@@ -3,7 +3,10 @@
 // See LICENSE for details.
 "use strict";
 
-const assert = require('assert');
+const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
+chai.use(chaiAsPromised);
+const expect = chai.expect;
 
 let phantom = require('phantom');
 let phInstance = null, sitepage = null;
@@ -45,7 +48,7 @@ describe('w02 Diagnostic', function(){
         });
       }, testCases).then(function(testCases){
         testCases.forEach(function(testCase){
-          assert.equal(testCase.expected, testCase.actual);
+          expect(testCase.expected).to.equal(testCase.actual);
         });
       });
     });
@@ -60,7 +63,7 @@ describe('w02 Diagnostic', function(){
         });
       }, testCases).then(function(testCases){
         testCases.forEach(function(testCase){
-          assert.equal(testCase.expected, testCase.actual);
+          expect(testCase.expected).to.equal(testCase.actual);
         });
       });
     });
@@ -82,10 +85,10 @@ describe('w02 Diagnostic', function(){
           return {innerHTML: child.innerHTML, tagName: child.tagName};
         });
       }, tasks).then(function(taskListChildren){
-        assert.equal(taskListChildren.length, tasks.length);
+        expect(taskListChildren.length).to.equal(tasks.length);
         for (let i = 0; i < tasks.length; i++) {
-          assert.equal(taskListChildren[i].tagName, 'LI');
-          assert.equal(taskListChildren[i].innerHTML, tasks[i]);
+          expect(taskListChildren[i].tagName).to.equal('LI');
+          expect(taskListChildren[i].innerHTML).to.equal(tasks[i]);
         }
       });
     })
@@ -115,7 +118,7 @@ describe('w02 Diagnostic', function(){
         });
       }, testCases).then(function(testCases){
         testCases.forEach(function(testCase){
-          assert.equal(testCase.expected, testCase.actual);
+          expect(testCase.expected).to.equal(testCase.actual);
         });
       });
     });
