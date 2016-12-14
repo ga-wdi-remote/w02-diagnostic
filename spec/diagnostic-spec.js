@@ -31,17 +31,39 @@ describe('w02 Diagnostic', function(){
   });
   describe("nthFibonacci(n)", function(){
     it("gives the nth Fibonacci number", function(){
-      assert.equal(nthFibonacci(1), 1);
-      assert.equal(nthFibonacci(2), 1);
-      assert.equal(nthFibonacci(3), 2);
-      assert.equal(nthFibonacci(4), 3);
-      assert.equal(nthFibonacci(5), 5);
-      assert.equal(nthFibonacci(10), 55);   // 1 1 2 3 5 8 13 21 34 55
-      assert.equal(nthFibonacci(20), 6765); // 89 144 233 377 610 987 1597 2584 4181 6765
+      let testCases = [
+        {n: 1, fib: 1},
+        {n: 2, fib: 1},
+        {n: 3, fib: 2},
+        {n: 4, fib: 3},
+        {n: 5, fib: 5},
+        {n: 10, fib: 55},       // 1 1 2 3 5 8 13 21 34 55
+        {n: 20, fib: 6765},     // 89 144 233 377 610 987 1597 2584 4181 6765
+      ]
+      return sitepage.evaluate(function(testCases){
+        return testCases.map(function(testCase){
+          return {expected: testCase.fib, actual: nthFibonacci(testCase.n)};
+        });
+      }, testCases).then(function(testCases){
+        testCases.forEach(function(testCase){
+          assert.equal(testCase.expected, testCase.actual);
+        });
+      });
     });
     it("returns `null` for values of n less than 1", function(){
-      assert.equal(nthFibonacci(0), null);
-      assert.equal(nthFibonacci(-1), null);
+      let testCases = [
+        {n: 0, fib: null},
+        {n: -1, fib: null}
+      ]
+      return sitepage.evaluate(function(testCases){
+        return testCases.map(function(testCase){
+          return {expected: testCase.fib, actual: nthFibonacci(testCase.n)};
+        });
+      }, testCases).then(function(testCases){
+        testCases.forEach(function(testCase){
+          assert.equal(testCase.expected, testCase.actual);
+        });
+      });
     });
   });
 });
