@@ -4,15 +4,15 @@
 
 <!-- MATERIALS METADATA -->
 <!--
-  title: 'R2D2 Week 2 Diagnostic'
-  type: diagnostic
-  creators: Matt Brendzel
-  competencies: javascript, functions, problem solving
+  title: Week 1 Diagnostic
+  format: diagnostic
+  original author: Matt Brendzel
+  tags: javascript, functions, dom, events
 -->
 
 ## Setup
 
-Make sure that you are on the `master` branch of your `wdi-remote-r2d2` repo.
+Make sure that you are on the `master` branch of your `wdi-remote-...` repo.
 Then run `git pull upstream master` to pull the latest materials from the
 instructors' repository. You shouldn't hit a merge conflict here, but if you do,
 flag down an instructor right away.
@@ -27,18 +27,28 @@ Read through `diagnostic.js` and complete all of the functions listed there.
 
 ### Testing Your Work
 
-As usual, a set of automated [Mocha.js](https://mochajs.org/) tests have been
+A set of automated [Mocha.js](https://mochajs.org/) tests have been
 provided for you. You can run these tests by running `npm test` from within the
 `diagnostic` directory.
 
-Remember: test your work regularly, and read the feedback from the tests
-carefully. It may give you a clue about what to do next.
+Test your work regularly, and read the feedback from the tests
+carefully; they may give you a clue about what to do next, or where your code
+may be breaking.
 
 ## Submitting Your Work
 
-When you're ready to submit your work, push the code to your fork on GitHub.
-Then, create an issue on the `wdi-remote-...` repo using the same convention
-as before: "YourGitHubUsername -- Week 02 Diagnostic". Run the test
-suite one last time, take a screenshot of the output, and paste that screenshot
-into the issue's body. Please also include a link that points back to the code
-on your fork.
+When you're ready to submit your work,
+
+1.  Run the command `npm test` and take a screenshot of the output in your
+    terminal.
+2.  Push your code to your fork of the class repo.
+3.  File an issue on the class repo titled "Your Name -- wXX Diagnostic".
+
+The issue should include:
+
+-   A link that points back to your fork.
+
+-   The screenshot you took.
+
+-   A 'comfort' score on how you feel about the material, from 1 (very
+    uncomfortable) to 5 (very comfortable)
