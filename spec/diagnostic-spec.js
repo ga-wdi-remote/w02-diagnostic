@@ -87,36 +87,36 @@ describe('w02 Diagnostic', function(){
       });
     })
   });
+  describe("rotateBackgroundColor()", function(){
+    context("when the background color of the body is white", function(){
+      it("changes the background color to red", function(){
+        document.body.style.backgroundColor = "white";
+        rotateBackgroundColor();
+        assert.equal(document.body.style.backgroundColor, "red");
+      });
+    });
+    context("when the background color of the body is red", function(){
+      it("changes the background color to blue", function(){
+        document.body.style.backgroundColor = "red";
+        rotateBackgroundColor();
+        assert.equal(document.body.style.backgroundColor, "blue");
+      });
+    });
+    context("when the background color of the body is blue", function(){
+      it("changes the background color to green", function(){
+        document.body.style.backgroundColor = "blue";
+        rotateBackgroundColor();
+        assert.equal(document.body.style.backgroundColor, "green");
+      });
+    });
+    context("when the background color of the body is green", function(){
+      it("changes the background color to white", function(){
+        document.body.style.backgroundColor = "green";
+        rotateBackgroundColor();
+        assert.equal(document.body.style.backgroundColor, "white");
+      });
+    });
+  });
 });
 
 jsdom();
-describe("rotateBackgroundColor()", function(){
-  context("when the background color of the body is white", function(){
-    it("changes the background color to red", function(){
-      document.body.style.backgroundColor = "white";
-      rotateBackgroundColor();
-      assert.equal(document.body.style.backgroundColor, "red");
-    });
-  });
-  context("when the background color of the body is red", function(){
-    it("changes the background color to blue", function(){
-      document.body.style.backgroundColor = "red";
-      rotateBackgroundColor();
-      assert.equal(document.body.style.backgroundColor, "blue");
-    });
-  });
-  context("when the background color of the body is blue", function(){
-    it("changes the background color to green", function(){
-      document.body.style.backgroundColor = "blue";
-      rotateBackgroundColor();
-      assert.equal(document.body.style.backgroundColor, "green");
-    });
-  });
-  context("when the background color of the body is green", function(){
-    it("changes the background color to white", function(){
-      document.body.style.backgroundColor = "green";
-      rotateBackgroundColor();
-      assert.equal(document.body.style.backgroundColor, "white");
-    });
-  });
-});
