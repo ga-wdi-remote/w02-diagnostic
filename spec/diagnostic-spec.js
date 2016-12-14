@@ -68,21 +68,25 @@ describe('w02 Diagnostic', function(){
   });
   describe("renderTaskList(tasks)", function(){
     it("takes a list of tasks, generates a set of <li> elements, and sets these elements as the content of a <ul> element with the id 'task-list'", function(){
-      sitepage.evaluate(function(){
-        var taskList = document.getElementById('taskList');
-        var tasks = [
-          'mow the lawn',
-          'walk the dog',
-          'feed the cat',
-          'take out the trash',
-          'do the laundry',
-          'X the Y'
-        ];
+      var tasks = [
+        'mow the lawn',
+        'walk the dog',
+        'feed the cat',
+        'take out the trash',
+        'do the laundry',
+        'X the Y'
+      ];
+      return sitepage.evaluate(function(tasks){
+        var taskList = document.getElementById('task-list');
         renderTaskList(tasks);
-        assert.equal(taskList.children.length, tasks.length);
+        return Array.prototype.slice.call(taskList.children).map(function(child){
+          return {innerHTML: child.innerHTML, tagName: child.tagName};
+        });
+      }, tasks).then(function(taskListChildren){
+        assert.equal(taskListChildren.length, tasks.length);
         for (let i = 0; i < tasks.length; i++) {
-          assert.equal(taskList.children[i].tagName, 'LI');
-          assert.equal(taskList.children[i].innerHTML, tasks[i]);
+          assert.equal(taskListChildren[i].tagName, 'LI');
+          assert.equal(taskListChildren[i].innerHTML, tasks[i]);
         }
       });
     })
