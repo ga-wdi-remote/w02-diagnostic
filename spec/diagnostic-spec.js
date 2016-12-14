@@ -29,21 +29,20 @@ describe('w02 Diagnostic', function(){
         phInstance.exit();
     });
   });
-});
-
-describe("nthFibonacci(n)", function(){
-  it("gives the nth Fibonacci number", function(){
-    assert.equal(nthFibonacci(1), 1);
-    assert.equal(nthFibonacci(2), 1);
-    assert.equal(nthFibonacci(3), 2);
-    assert.equal(nthFibonacci(4), 3);
-    assert.equal(nthFibonacci(5), 5);
-    assert.equal(nthFibonacci(10), 55);   // 1 1 2 3 5 8 13 21 34 55
-    assert.equal(nthFibonacci(20), 6765); // 89 144 233 377 610 987 1597 2584 4181 6765
-  });
-  it("returns `null` for values of n less than 1", function(){
-    assert.equal(nthFibonacci(0), null);
-    assert.equal(nthFibonacci(-1), null);
+  describe("nthFibonacci(n)", function(){
+    it("gives the nth Fibonacci number", function(){
+      assert.equal(nthFibonacci(1), 1);
+      assert.equal(nthFibonacci(2), 1);
+      assert.equal(nthFibonacci(3), 2);
+      assert.equal(nthFibonacci(4), 3);
+      assert.equal(nthFibonacci(5), 5);
+      assert.equal(nthFibonacci(10), 55);   // 1 1 2 3 5 8 13 21 34 55
+      assert.equal(nthFibonacci(20), 6765); // 89 144 233 377 610 987 1597 2584 4181 6765
+    });
+    it("returns `null` for values of n less than 1", function(){
+      assert.equal(nthFibonacci(0), null);
+      assert.equal(nthFibonacci(-1), null);
+    });
   });
 });
 
