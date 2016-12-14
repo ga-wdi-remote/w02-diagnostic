@@ -4,7 +4,7 @@
 
 <!-- MATERIALS METADATA -->
 <!--
-  title: Week 1 Diagnostic
+  title: Week 2 Diagnostic
   format: diagnostic
   original author: Matt Brendzel
   tags: javascript, functions, dom, events
