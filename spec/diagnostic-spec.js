@@ -92,7 +92,7 @@ describe('w02 Diagnostic', function(){
           expect(taskListChildren[i].innerHTML).to.equal(tasks[i]);
         }
       });
-    })
+    });
   });
   describe("rotateBackgroundColor()", function(){
     it('changes the background color of the body once;\n     \
