@@ -66,30 +66,30 @@ describe('w02 Diagnostic', function(){
       });
     });
   });
+  describe("renderTaskList(tasks)", function(){
+    it("takes a list of tasks, generates a set of <li> elements, and sets these elements as the content of a <ul> element with the id 'task-list'", function(){
+      var taskList = document.createElement('ul');
+      taskList.id = 'task-list';
+      document.body.appendChild(taskList);
+      var tasks = [
+        'mow the lawn',
+        'walk the dog',
+        'feed the cat',
+        'take out the trash',
+        'do the laundry',
+        'X the Y'
+      ];
+      renderTaskList(tasks);
+      assert.equal(taskList.children.length, tasks.length);
+      for (let i = 0; i < tasks.length; i++) {
+        assert.equal(taskList.children[i].tagName, 'LI');
+        assert.equal(taskList.children[i].innerHTML, tasks[i]);
+      }
+    })
+  });
 });
 
 jsdom();
-describe("renderTaskList(tasks)", function(){
-  it("takes a list of tasks, generates a set of <li> elements, and sets these elements as the content of a <ul> element with the id 'task-list'", function(){
-    var taskList = document.createElement('ul');
-    taskList.id = 'task-list';
-    document.body.appendChild(taskList);
-    var tasks = [
-      'mow the lawn',
-      'walk the dog',
-      'feed the cat',
-      'take out the trash',
-      'do the laundry',
-      'X the Y'
-    ];
-    renderTaskList(tasks);
-    assert.equal(taskList.children.length, tasks.length);
-    for (let i = 0; i < tasks.length; i++) {
-      assert.equal(taskList.children[i].tagName, 'LI');
-      assert.equal(taskList.children[i].innerHTML, tasks[i]);
-    }
-  })
-});
 describe("rotateBackgroundColor()", function(){
   context("when the background color of the body is white", function(){
     it("changes the background color to red", function(){
